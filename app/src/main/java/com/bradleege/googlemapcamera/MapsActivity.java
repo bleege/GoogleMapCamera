@@ -4,7 +4,7 @@ import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-
+import android.widget.Toast;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -52,6 +52,32 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             }
         });
 
+        Button cameraDuration = (Button) findViewById(R.id.cameraAnimateDurationButton);
+        cameraDuration.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CameraPosition cameraPosition = new CameraPosition.Builder()
+                        .target(new LatLng(-22.91214, -43.23012))   // Sets the center of the map to Maracanã
+                        .bearing(270)                               // Sets the orientation of the camera to west
+                        .zoom(14)                                   // Sets the zoom
+                        .tilt(20)                                   // Sets the tilt of the camera to 30 degrees
+                        .build();                                   // Creates a CameraPosition from the builder
+
+                GoogleMap.CancelableCallback callback = new GoogleMap.CancelableCallback() {
+                    @Override
+                    public void onCancel() {
+                        Toast.makeText(MapsActivity.this, "Duration onCancel Callback called.", Toast.LENGTH_LONG).show();
+                    }
+
+                    @Override
+                    public void onFinish() {
+                        Toast.makeText(MapsActivity.this, "Duration onFinish Callback called.", Toast.LENGTH_LONG).show();
+                    }
+                };
+
+                mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition), 25000, callback);
+            }
+        });
 
     }
 
