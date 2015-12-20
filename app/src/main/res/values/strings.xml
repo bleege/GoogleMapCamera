@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">GoogleMapCamera</string>
     <string name="title_activity_maps">Map</string>
+
+
+    <string name="button_camera_animate">Animate</string>
+    <string name="button_camera_move">Move</string>
+    <string name="button_camera_move_duration">Duration</string>
+
 </resources>
