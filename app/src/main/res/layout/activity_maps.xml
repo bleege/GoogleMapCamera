@@ -27,7 +27,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/button_camera_move"
-        android:id="@+id/cameraMovekButton"
+        android:id="@+id/cameraMoveButton"
         android:layout_alignTop="@+id/cameraAnimateButton"
         android:layout_centerHorizontal="true"
         android:background="@color/white"/>
@@ -37,7 +37,7 @@
         android:layout_height="wrap_content"
         android:text="@string/button_camera_move_duration"
         android:id="@+id/cameraAnimateDurationButton"
-        android:layout_alignBottom="@+id/cameraMovekButton"
+        android:layout_alignBottom="@+id/cameraMoveButton"
         android:layout_alignParentRight="true"
         android:layout_marginRight="@dimen/fab_margin"
         android:background="@color/white"/>

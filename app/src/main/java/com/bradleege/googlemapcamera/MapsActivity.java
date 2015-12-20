@@ -39,6 +39,18 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             }
         });
 
+        Button cameraMove = (Button) findViewById(R.id.cameraMoveButton);
+        cameraMove.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CameraPosition cameraPosition = new CameraPosition.Builder()
+                        .target(new LatLng(48.21874, 11.62465))     // Sets the center of the map to Allianz Arena
+                        .zoom(16)                                   // Sets the zoom
+                        .bearing(180)                               // Sets the orientation of the camera to south
+                        .build();                                   // Creates a CameraPosition from the builder
+                mMap.moveCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+            }
+        });
 
 
     }
